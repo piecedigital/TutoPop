@@ -3,6 +3,11 @@
 
 ___
 
+##Dependencies
+* JQuery
+
+___
+
 ##What is it?
 
 TutoPop is a jQuery tool for creating simple popup tutorials showing your users the interface of your website or web app!
