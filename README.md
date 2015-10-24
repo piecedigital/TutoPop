@@ -20,7 +20,7 @@ It's simple! All you have to do is pass in a few key points of data voila! Insta
 
 The method takes up to 5
 
-```
+``` js
 tutoPop(array[, array, int, callback, callback]);
 ```
 
@@ -28,7 +28,7 @@ Here how it works:
 
 First, you'll want to create an array of all of your tutorial prompts
 
-```
+``` js
 // This is an array of our tutorial prompts.
 // It's an array of objects that take 3 parameters:
 // x: this is the x coordinate for the tutorial dialog box
@@ -49,7 +49,7 @@ var tutorials = [
 
 Next, we call the tutoPop method to initiate the tutorial popups
 
-```
+``` js
 tutoPop(tutorials);
 ```
 
@@ -60,7 +60,7 @@ Of course there's more that you can so with TutoPop, so let's explore what those
 ___
 
 
-```
+``` js
 tutoPop(array[, array, int, callback, callback]);
 ```
 
@@ -68,7 +68,7 @@ tutoPop(array[, array, int, callback, callback]);
 
 The second argument accepts an array. Passing in any hex code(s) (or CSS rgb(a) value(s)) will let you change the color of both the text and the background.
 
-```
+``` js
 ["<color for background>", "<color for text>"]
 ```
 Pass an empty string or null to ignore that index of the array.
@@ -87,7 +87,7 @@ Pass an empty string or null and it will ignore it;
 
 Below you'll find an example of a callback function using this feature
 
-```
+``` js
 // This is our callback for when the user clicks the next button of the current tutorial dialog box (optional)
 
 // "arr" is the original array that gets passed back to this function
@@ -97,7 +97,7 @@ Below you'll find an example of a callback function using this feature
 var nextCB = function(arr, ind, nextFunc, closeFunc) {
   if(ind >= arr.length-1) {
     if(confirm("Would you like to rerun the tutorial?")) {
-      tutoPop(arr, null, nextFunc, closeFunc);
+      tutoPop(arr, null, null, nextFunc, closeFunc);
     }
   }
 };
@@ -108,7 +108,7 @@ var nextCB = function(arr, ind, nextFunc, closeFunc) {
 
 var closeCB = function(arr, ind, nextFunc, closeFunc) {
   if(confirm("Would you like to rerun the tutorial?")) {
-    tutoPop(arr, null, nextFunc, closeFunc);
+    tutoPop(arr, null, null, nextFunc, closeFunc);
   }
 };
 ```
