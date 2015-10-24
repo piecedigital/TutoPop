@@ -97,7 +97,7 @@ Below you'll find an example of a callback function using this feature
 var nextCB = function(arr, ind, nextFunc, closeFunc) {
   if(ind >= arr.length-1) {
     if(confirm("Would you like to rerun the tutorial?")) {
-      popupTut(arr, null, nextFunc, closeFunc);
+      tutoPop(arr, null, nextFunc, closeFunc);
     }
   }
 };
@@ -108,7 +108,7 @@ var nextCB = function(arr, ind, nextFunc, closeFunc) {
 
 var closeCB = function(arr, ind, nextFunc, closeFunc) {
   if(confirm("Would you like to rerun the tutorial?")) {
-    popupTut(arr, null, nextFunc, closeFunc);
+    tutoPop(arr, null, nextFunc, closeFunc);
   }
 };
 ```
