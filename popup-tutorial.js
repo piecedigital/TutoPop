@@ -1,4 +1,4 @@
-var tutoPop = function(tutArr, color, index, nextCB, closeCB) {
+$.tutoPop = function(tutArr, color, index, nextCB, closeCB) {
 	bgColor = "#9be0ff !important",
 	textColor = "#017ab1 !important";
 	

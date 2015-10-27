@@ -10,7 +10,7 @@ ___
 
 ##What is it?
 
-TutoPop is a jQuery-based tool for creating simple popup tutorials showing your users the interface of your website or web app!
+TutoPop is a jQuery plugin for creating simple popup tutorials showing your users the interface of your website or web app!
 
 ___
 
@@ -21,7 +21,7 @@ It's simple! All you have to do is pass in a few key points of data voila! Insta
 The method takes up to 5
 
 ``` js
-tutoPop(array[, array, int, callback, callback]);
+$.tutoPop(array[, array, int, callback, callback]);
 ```
 
 Here how it works:
@@ -50,7 +50,7 @@ var tutorials = [
 Next, we call the tutoPop method to initiate the tutorial popups
 
 ``` js
-tutoPop(tutorials);
+$.tutoPop(tutorials);
 ```
 
 And that's it! Seriously, that's all that's required.
@@ -61,7 +61,7 @@ ___
 
 
 ``` js
-tutoPop(array[, array, int, callback, callback]);
+$.tutoPop(array[, array, int, callback, callback]);
 ```
 
 ###Color: array
@@ -97,7 +97,7 @@ Below you'll find an example of a callback function using this feature
 var nextCB = function(arr, ind, nextFunc, closeFunc) {
   if(ind >= arr.length-1) {
     if(confirm("Would you like to rerun the tutorial?")) {
-      tutoPop(arr, null, null, nextFunc, closeFunc);
+      $.tutoPop(arr, null, null, nextFunc, closeFunc);
     }
   }
 };
@@ -108,7 +108,7 @@ var nextCB = function(arr, ind, nextFunc, closeFunc) {
 
 var closeCB = function(arr, ind, nextFunc, closeFunc) {
   if(confirm("Would you like to rerun the tutorial?")) {
-    tutoPop(arr, null, null, nextFunc, closeFunc);
+    $.tutoPop(arr, null, null, nextFunc, closeFunc);
   }
 };
 ```
