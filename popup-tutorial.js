@@ -157,7 +157,7 @@ tutoPop = function(tutArr, color, index, nextCB, closeCB) {
 			}
 			tutRun(tutArr, index, nextCB, closeCB);
 		},
-		oneTime: function(options) {
+		oneTime: function() {
 			bgColor = "#9be0ff",
 			textColor = "#017ab1";
 			
@@ -176,11 +176,15 @@ tutoPop = function(tutArr, color, index, nextCB, closeCB) {
 			// Here we pass in the array, index (optional), callback for next (optional), and callback for close (optional)
 			var tutRun = function(tut, ind, nextFunc, closeFunc) {
 			  ind = ind || 0;
-			  var thisTutBox = new tutBox(tut.msg, tut.x + 16, tut.y + 16, tut.side);
+			  var thisTutBox = new tutBox(tut.msg, tut.dialogX + 16, tut.dialogY + 16, tut.side);
 
 			  $("body").append($(thisTutBox));
 			  setTimeout(function() {
-			    $(thisTutBox).addClass("full");
+			    $(thisTutBox).css({
+			    	"transition": ".5s all",
+			    	"opacity": "1",
+			    	"transform": "translate(-50%, -50%) scale(1)"
+			    });
 			  }, 100);
 
 			  if( Math.ceil($(thisTutBox).offset().left + $(thisTutBox).width() + 16) >= $(document).width() ) {
