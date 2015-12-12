@@ -103,7 +103,7 @@ ___
 
 
 ``` js
-tutoPop(tutorials[, color, index, nextButtonCallback, previousButtonCallback]);
+tutoPop(tutorials[, color, index, nextButtonCallback, closeButtonCallback]);
 ```
 
 ### Color: array
@@ -133,7 +133,6 @@ Below you'll find an example of a callback function using this feature
 // This is our callback for when the user clicks the next button of the current tutorial dialog box (optional)
 
 // "arr" is the original array that gets passed back to this function
-// **NOTE** if you use the "oneTime" initiation method "arr" with actually be a single tutorial from the popup
 // "ind" is the current index that gets passed back to this function
 // "nextFunc/closeFunc" are the original callbacks that get passed back to this function
 
@@ -155,6 +154,7 @@ var closeCB = function(arr, ind, nextFunc, closeFunc) {
   }
 };
 ```
+**NOTE: if you use the "oneTime" initiation method "arr" with actually be a single tutorial from the popup**
 
 That's just a small example of what you can use the callback feature of TutoPop for. Go crazy! And tell me about it :)
 

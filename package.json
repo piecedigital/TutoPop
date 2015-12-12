@@ -16,13 +16,13 @@
     "email": "piecedigitalstudios@gmail.com",
     "url": "http://piecedigital.github.io"
   },
-  "homepage": "https://github.com/piecedigital/LayoutCSS",
+  "homepage": "http://piecedigital.github.io/tutopop",
   "repository": {
     "type": "git",
-    "url": "https://github.com/piecedigital/LayoutCSS.git"
+    "url": "https://github.com/piecedigital/tutopop.git"
   },
   "bugs": {
-    "url": "https://github.com/piecedigital/LayoutCSS/issues"
+    "url": "https://github.com/piecedigital/tutopop/issues"
   },
   "license": "MIT"
 }
