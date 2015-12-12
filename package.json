@@ -1,0 +1,28 @@
+{
+  "name": "tutopop",
+  "version": "1.0.0",
+  "description": "A jQuery-based JavaScript tool for creating pop-up tutorials for your website or web app!",
+  "keywords": [
+    "js",
+    "javascript",
+    "jquery",
+    "library",
+    "front-end",
+    "tutorial",
+    "popup"
+  ],
+  "author": {
+    "name": "Darryl Dixon",
+    "email": "piecedigitalstudios@gmail.com",
+    "url": "http://piecedigital.github.io"
+  },
+  "homepage": "https://github.com/piecedigital/LayoutCSS",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/piecedigital/LayoutCSS.git"
+  },
+  "bugs": {
+    "url": "https://github.com/piecedigital/LayoutCSS/issues"
+  },
+  "license": "MIT"
+}

@@ -1,20 +1,20 @@
-#TutoPop
-###Lead by bubble!
+# TutoPop
+### Lead by bubble!
 
 ___
 
-##Dependencies
+## Requirements
 * JQuery
 
 ___
 
-##What is it?
+## What is it?
 
 TutoPop is a jQuery-based tool for creating simple popup tutorials showing your users the interface of your website or web app!
 
 ___
 
-##How does it work?
+## How does it work?
 
 It's simple! All you have to do is pass in a few key points of data voila! Instant tutorials!
 
@@ -29,25 +29,29 @@ Then there are (currently) 2 initiation type methods to call on tutoPop
 ``` js
 // timeline 
 // calling the "timeline" method will initiate tutoPop for procedural operations
-tutoPop(...).timeline([options])
+tutoPop(...).timeline()
 // oneTime
 // calling the "oneTIme" method will initiate tutoPop to display all tutorial popups at once.
 tutoPop(...).oneTime([options])
 ```
 
-The "oneTime()" initiation method accepts an object with the following options
+The initiation methods accept an object with the following options
 ``` js
 // This is an object of our initiation method options
+// fadeIn: the time, in seconds, that it'll take for the dialog box to fade in
 // highlight: indicates whether or not to include a highlight on the page
 // color: a CSS color value (hex code or RGB), the color of the area surrounding the highlighted area
 // opacity: the opacity of the highlight box (color opacity is effected)
 
 {
+  fadeIn: number
   highlight: boolean,
   opacity: number,
-  color: String
+  color: string
 }
 ```
+**NOTE: the "highlight" option is not available to the "oneTime()" initiation method. Ergo, neither are "opacity" and "color"**
+___
 
 Here how it works:
 
@@ -57,15 +61,16 @@ First, you'll want to create an array of all of your tutorial prompts
 // This is an array of our tutorial prompts.
 // It's an array of objects that take 9 parameters:
 
-// dialogX: this is the x coordinate for the tutorial dialog box
-// dialogY: this is the y coordinate for the tutorial dialog box
+// dialogX: this is the x coordinate for the tutorial dialog box. 50% is the default
+// dialogY: this is the y coordinate for the tutorial dialog box. 50% is the default
 // highlightX: this is the x coordinate for the tutorial highlight box
 // highlightY: this is the y coordinate for the tutorial highlight box
 // highlightRadius: this is the border radius for the highlight area
 // highlightWidth: this is the width of the optional highlight area
 // highlightHeight: this is the height of the optional highlight area
-// msg: this is the actual text for the tutorial dialog box
+// msg: this is the actual text for the tutorial dialog box. "???" is the default text
 // side: this is the side that arrow will appear: top(default), right, bottom, left
+// offset: this is of the arrow. If it had a face, negatives would be its left, posititves its right. Influence is a percentage based on dialog box width or height. 0% is the default value
 
 var tutorials = [
   {
@@ -76,8 +81,9 @@ var tutorials = [
     highlightRadius: number,
     highlightWidth: number,
     highlightHeight: number,
-    msg: String,
-    side: String
+    msg: string,
+    side: string,
+    offset: number
   },
   ...
 ];
@@ -97,10 +103,10 @@ ___
 
 
 ``` js
-tutoPop(array[, array, number, callback, callback]);
+tutoPop(tutorials[, color, index, nextButtonCallback, previousButtonCallback]);
 ```
 
-###Color: array
+### Color: array
 
 The second argument accepts an array. Passing in any hex code(s) (or CSS rgb(a) value(s)) will let you change the color of both the text and the background.
 
@@ -109,13 +115,13 @@ The second argument accepts an array. Passing in any hex code(s) (or CSS rgb(a) 
 ```
 Pass an empty string or null to ignore that index of the array.
 
-###Index: number
+### Index: number
 
 The third argument accepts an integer. This indicates the place in the tutorials array in which to begin the tutorial.
 
 Pass an empty string or null and it will default to 0;
 
-###Callback(s): function
+### Callback(s): function
 
 The third and fourth arguments accept a function. This allows you to trigger certain events for the clicking of the "Next" and "X" buttons.
 
@@ -127,7 +133,7 @@ Below you'll find an example of a callback function using this feature
 // This is our callback for when the user clicks the next button of the current tutorial dialog box (optional)
 
 // "arr" is the original array that gets passed back to this function
-// **NOTE** if you use the "oneTime" initiation method "arr" with actually be the one tutorial
+// **NOTE** if you use the "oneTime" initiation method "arr" with actually be a single tutorial from the popup
 // "ind" is the current index that gets passed back to this function
 // "nextFunc/closeFunc" are the original callbacks that get passed back to this function
 
@@ -156,8 +162,8 @@ Here's a [Codepen](http://codepen.io/piecedigital/pen/vNdaJm) example of TutoPop
 
 ___
 
-# Thanks for viewing! :)
-## Star this repo if you liked it
-### Checkout my links below
+#  Thanks for viewing! :)
+##  Star this repo if you liked it
+###  Checkout my links below
 
 [Twitter](http://twitter.com/PieceDigital) | [Github](piecedigital.github.io) | [LinkedIn](linkedin.com/in/pdstudios)
