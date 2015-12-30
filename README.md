@@ -71,6 +71,7 @@ First, you'll want to create an array of all of your tutorial prompts
 // msg: this is the actual text for the tutorial dialog box. "???" is the default text
 // side: this is the side that arrow will appear: top(default), right, bottom, left
 // offset: this is of the arrow. If it had a face, negatives would be its left, posititves its right. Influence is a percentage based on dialog box width or height. 0% is the default value
+// maxWidth: this is the maximum width of the dialog box
 
 var tutorials = [
   {
@@ -83,7 +84,8 @@ var tutorials = [
     highlightHeight: number,
     msg: string,
     side: string,
-    offset: number
+    offset: number,
+    maxWidth: number
   },
   ...
 ];

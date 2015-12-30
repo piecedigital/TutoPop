@@ -1,15 +1,16 @@
 var tutoPop = function(tutArr, color, index, nextCB, closeCB) {
 	// This variable is the structure for our tutorial dialog box
-	var tutBox = function(text, x, y, side, offset) {
+	var tutBox = function(text, x, y, side, offset, maxWidth) {
 	  text = text || "???";
 	  x = x + "px" || "50%";
 	  y = y + "px" || "50%";
 	  side = side || "top";
 	  offset = offset || 0;
-	  var minWidth = 15 * 16;
-	  var maxWidth = 15 * 16;
+	  var minWidth = 10 * 16;
+	  maxWidth = maxWidth || 15 * 16;
 
 	  return $("<div>").addClass("tut-box").css({
+	  	"z-index": "1000",
 	  	"position": "fixed",
 	    "top": y,
 	    "left": x,
@@ -100,6 +101,7 @@ var tutoPop = function(tutArr, color, index, nextCB, closeCB) {
 			  var color = options.color || "black";
 
 			  return $("<div>").css({
+			  	"z-index": "1000",
 		  		"position": "fixed",
 		  		"top": 0,
 		  		"left": 0,
@@ -127,7 +129,7 @@ var tutoPop = function(tutArr, color, index, nextCB, closeCB) {
 			var tutRun = function(arr, ind, nextFunc, closeFunc) {
 			  ind = ind || 0;
 			  var thisHLBox = (options.highlight) ? new tutHighlight(arr[ind].highlightX + 16, arr[ind].highlightY + 16, arr[ind].highlightWidth, arr[ind].highlightHeight, arr[ind].highlightRadius) : "";
-			  var thisTutBox = new tutBox(arr[ind].msg, arr[ind].dialogX + 16, arr[ind].dialogY + 16, arr[ind].side, arr[ind].offset);
+			  var thisTutBox = new tutBox(arr[ind].msg, arr[ind].dialogX + 16, arr[ind].dialogY + 16, arr[ind].side, arr[ind].offset, arr[ind].maxWidth);
 
 			  $("body").append($(thisHLBox), $(thisTutBox));
 			  setTimeout(function() {
@@ -221,11 +223,13 @@ var tutoPop = function(tutArr, color, index, nextCB, closeCB) {
 			  
 			  $(thisTutBox).find(".next").on("click", function() {
 			    $(thisTutBox).remove();
+			    thisTutBox = null;
 			    if(nextFunc && typeof nextFunc === "function") { nextFunc(tut, ind, nextFunc, closeFunc); };
 			  });
 			  $(thisTutBox).find(".quit").on("click", function() {
 			    if(closeFunc && typeof closeFunc === "function") { closeFunc(tut, ind, nextFunc, closeFunc); nextFunc = null; };
 			    $(thisTutBox).remove();
+			    thisTutBox = null;
 			  });
 			}
 			for(var tut in tutArr) {
